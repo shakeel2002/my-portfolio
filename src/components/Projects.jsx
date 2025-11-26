@@ -39,23 +39,32 @@ const Projects = () => {
 
   return (
     <section id="projects" className="py-8">
-      <h2 className="text-stitch-black text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-4">
-        Projects
-      </h2>
+      <div className="flex justify-between items-end px-4 pb-4">
+        <h2 className="text-stitch-black text-[22px] font-bold leading-tight tracking-[-0.015em]">
+          Projects
+        </h2>
 
-      {/* 
-         RESPONSIVE EXPLANATION:
-         1. flex overflow-x-auto: Enables horizontal scrolling.
-         2. gap-6: Adds space between cards.
-         3. snap-x snap-mandatory: Makes it snap to the center of the card when scrolling on mobile.
-         4. no-scrollbar: Hides the ugly scrollbar bar.
-      */}
-      <div className="flex overflow-x-auto gap-6 px-4 pb-8 no-scrollbar snap-x snap-mandatory items-stretch">
+        {/* SWIPE HINT (Visible only on Mobile) */}
+        <motion.div
+          initial={{ opacity: 0.6, x: 0 }}
+          animate={{ opacity: 1, x: [0, 5, 0] }}
+          transition={{ duration: 1.5, repeat: Infinity }}
+          className="text-xs font-medium text-stitch-red md:hidden flex items-center gap-1"
+        >
+          Swipe to explore <span>→</span>
+        </motion.div>
+      </div>
+
+      {/* Horizontal Scroll Container */}
+      <div className="flex overflow-x-auto gap-4 px-4 pb-8 no-scrollbar snap-x snap-mandatory items-stretch">
         {projects.map((proj, i) => (
           <div key={i} className="snap-center shrink-0 h-full">
             <ProjectCard {...proj} />
           </div>
         ))}
+
+        {/* Padding div to ensure the last card isn't flush against the edge */}
+        <div className="w-2 shrink-0" />
       </div>
     </section>
   );

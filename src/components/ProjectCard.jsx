@@ -9,14 +9,12 @@ const ProjectCard = ({ title, desc, tech, img, link }) => {
       rel="noopener noreferrer"
       whileHover={{ y: -5 }}
       /* 
-         RESPONSIVE SIZING LOGIC:
-         1. w-[85vw]: On Mobile (Phone), the card takes up 85% of the screen width. 
-            This creates a "peek" effect where you can see the next card coming.
-         2. sm:w-[320px]: On Tablet and Laptop (screens larger than 640px), 
-            the card locks to a fixed 320px width so it doesn't get too huge.
-         3. flex-col h-full: Ensures all cards are the same height.
+         RESPONSIVE UPDATE:
+         Changed w-[85vw] to w-[80vw]. 
+         This shows MORE of the next card (the "peek" effect), 
+         visually telling the user "Hey, there is more stuff here!"
       */
-      className="flex flex-col w-[85vw] sm:w-[320px] h-full rounded-xl border border-stitch-pink bg-stitch-card p-4 shadow-sm cursor-pointer hover:border-stitch-red transition-all duration-300 group"
+      className="flex flex-col w-[80vw] sm:w-[320px] h-full rounded-xl border border-stitch-pink bg-stitch-card p-4 shadow-sm cursor-pointer hover:border-stitch-red transition-all duration-300 group"
     >
       {/* Image Container */}
       <div className="relative w-full aspect-video rounded-lg overflow-hidden bg-gray-200">
@@ -38,7 +36,7 @@ const ProjectCard = ({ title, desc, tech, img, link }) => {
           {desc}
         </p>
 
-        {/* Tech Badge - Pushed to bottom */}
+        {/* Tech Badge */}
         <div className="mt-auto pt-3 border-t border-stitch-pink">
           <span className="inline-block text-xs font-bold text-stitch-red bg-stitch-input px-2 py-1 rounded">
             {tech}
