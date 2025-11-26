@@ -11,10 +11,11 @@ const Education = () => {
         <div className="bg-stitch-card p-6 rounded-lg border border-stitch-pink h-full shadow-sm flex flex-col justify-between">
           <div>
             <h3 className="font-bold text-lg text-stitch-black">
-              B.E. Computer Science Engineering
+              B.Tech Information Technology
             </h3>
             <p className="text-stitch-textux mb-2">
-              Aalim Muhammed Salegh College of Engineering
+              Aalim Muhammed Salegh College of Engineering Afflicated Anna
+              University
             </p>
           </div>
           <div className="flex justify-between mt-4 pt-4 border-t border-stitch-pink text-sm text-stitch-black">
