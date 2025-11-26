@@ -1,16 +1,34 @@
-# React + Vite
+# 👨‍💻 Shakeel Ahamed - Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![Portfolio Banner](https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=2070&auto=format&fit=crop)
 
-Currently, two official plugins are available:
+## 🚀 Introduction
+Welcome to my personal portfolio website! I am a **Software Engineer** and **AI Enthusiast** specializing in Full-Stack Web Development, Android Apps, and Computer Vision. This site showcases my projects, skills, and professional experience.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### 🔗 [Live Demo](https://shakeel2002.github.io/my-portfolio/)
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## 🛠️ Tech Stack
+*   **Frontend:** React.js, Tailwind CSS, Framer Motion
+*   **Build Tool:** Vite
+*   **Deployment:** GitHub Pages
+*   **Contact Form:** EmailJS
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 📂 Featured Projects
+1.  **AI-Powered Quiz & Chat App** - Android/Java/Flask
+2.  **Scobby Alert System** - Computer Vision/YOLOv5
+3.  **Trading Learning Platform** - React/Flask/MySQL
+4.  **AI Voice Agent** - React/Google Studio API
+
+---
+
+## 📫 Contact Me
+*   **Email:** shakeelahamed2610@gmail.com
+*   **LinkedIn:** [Shakeel Ahamed](https://www.linkedin.com/in/shakeel-ahamed26102002/)
+*   **GitHub:** [shakeel2002](https://github.com/shakeel2002)
+
+---
+© 2025 Shakeel Ahamed. Built with ❤️ and React.
