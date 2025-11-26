@@ -1,0 +1,81 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;900&family=Noto+Sans:wght@400;500;700;900&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --color-stitch-red: #dd133b;
+  --color-stitch-gold: #d4af37;
+  --font-sans: "Inter", "Noto Sans", sans-serif;
+}
+
+/* --- THEME VARIABLES --- */
+:root {
+  /* Light Mode Colors */
+  --stitch-bg: #fcf8f9;
+  --stitch-card-bg: #ffffff;
+  --stitch-text-main: #1b0d10; /* Dark Black */
+  --stitch-text-sec: #5c3a41; /* Darker pink/brown for readability */
+  --stitch-border: #e7cfd4;
+  --stitch-input-bg: #f3e7ea;
+}
+
+.dark {
+  /* Dark Mode Colors */
+  --stitch-bg: #0f0f0f; /* Deep Black Background */
+  --stitch-card-bg: #1e1e1e; /* Slightly lighter for cards */
+  --stitch-text-main: #ffffff; /* Pure White Text */
+  --stitch-text-sec: #a1a1aa; /* Light Grey for secondary text */
+  --stitch-border: #333333;
+  --stitch-input-bg: #2a2a2a;
+}
+
+/* --- GLOBAL SETTINGS --- */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+}
+
+body {
+  background-color: var(--stitch-bg);
+  color: var(--stitch-text-main);
+  font-family: var(--font-sans);
+  transition: background-color 0.3s ease, color 0.3s ease;
+  overflow-x: hidden; /*Vc Fix horizontal scroll on mobile */
+}
+
+/* --- UTILITY CLASSES MAPPED TO VARIABLES --- */
+.bg-stitch-bg {
+  background-color: var(--stitch-bg);
+}
+.bg-stitch-card {
+  background-color: var(--stitch-card-bg);
+}
+.text-stitch-black {
+  color: var(--stitch-text-main);
+}
+.text-stitch-textux {
+  color: var(--stitch-text-sec);
+}
+.border-stitch-pink {
+  border-color: var(--stitch-border);
+}
+.bg-stitch-input {
+  background-color: var(--stitch-input-bg);
+}
+.text-stitch-red {
+  color: var(--color-stitch-red);
+}
+.bg-stitch-red {
+  background-color: var(--color-stitch-red);
+}
+.text-stitch-gold {
+  color: var(--color-stitch-gold);
+}
+
+/* Hide scrollbar but allow scrolling */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
