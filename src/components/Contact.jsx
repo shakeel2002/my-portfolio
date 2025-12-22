@@ -33,12 +33,9 @@ const Contact = () => {
         Contact Me
       </h2>
 
-      {/* Contact Details Card */}
+      {/* Contact Details Card - ONLY EMAIL */}
       <div className="px-4 mb-6">
-        {/* Changed to flex-col on mobile for better stacking */}
-        <div className="flex flex-col sm:flex-row flex-wrap gap-4 text-sm font-medium text-stitch-black bg-stitch-card p-4 rounded-lg border border-stitch-pink shadow-sm">
-          <span>📍 Alandur, Chennai</span>
-          <span>📞 9698054477</span>
+        <div className="inline-block text-sm font-medium text-stitch-black bg-stitch-card p-4 rounded-lg border border-stitch-pink shadow-sm">
           <span className="text-stitch-red font-bold break-all">
             📧 shakeelahamed2610@gmail.com
           </span>
