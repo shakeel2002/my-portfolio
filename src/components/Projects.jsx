@@ -45,14 +45,14 @@ const Projects = () => {
           Projects
         </h2>
 
-        {/* SWIPE HINT (Visible only on Mobile) */}
+        {/* SWIPE HINT - Removed 'md:hidden' so it shows on Laptop too */}
         <motion.div
           initial={{ opacity: 0.6, x: 0 }}
           animate={{ opacity: 1, x: [0, 5, 0] }}
           transition={{ duration: 1.5, repeat: Infinity }}
-          className="text-xs font-medium text-stitch-red md:hidden flex items-center gap-1"
+          className="text-xs font-medium text-stitch-red flex items-center gap-1 cursor-default"
         >
-          Swipe to explore <span>→</span>
+          Swipe/Scroll <span>→</span>
         </motion.div>
       </div>
 
