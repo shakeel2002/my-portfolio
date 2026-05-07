@@ -87,6 +87,27 @@ const skillCategories = [
     ],
   },
   {
+    title: "Mobile Application",
+    skills: [
+      {
+        name: "Java",
+        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
+      },
+      {
+        name: "XML",
+        icon: "https://cdn.simpleicons.org/xml",
+      },
+      {
+        name: "Flutter",
+        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg",
+      },
+      {
+        name: "Dart",
+        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/dart/dart-original.svg",
+      },
+    ],
+  },
+  {
     title: "Databases & Delivery",
     skills: [
       {
@@ -240,7 +261,7 @@ const CategoryCard = ({ category }) => {
 const Skills = () => {
   return (
     <section id="skills" className="py-8 section-3d section-path path-skills">
-      <h2 className="heading-pop text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-6 pt-5">
+      <h2 className="text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-6 pt-5 text-[#ff6d8a]">
         Skills & Expertise
       </h2>
 
