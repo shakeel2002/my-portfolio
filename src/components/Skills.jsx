@@ -105,7 +105,7 @@ const skillCategories = [
       },
       {
         name: "REST API Development",
-        icon: "https://cdn.simpleicons.org/json/000",
+        icon: "https://cdn.simpleicons.org/json",
       },
     ],
   },
@@ -118,7 +118,7 @@ const skillCategories = [
       },
       {
         name: "XML",
-        icon: "https://cdn.simpleicons.org/xml/000",
+        icon: "https://cdn.simpleicons.org/xml",
       },
       {
         name: "Firebase",
@@ -185,7 +185,7 @@ const skillCategories = [
       },
       {
         name: "System Maintenance",
-        icon: "https://cdn.simpleicons.org/keepassxc/6CAC4D",
+        icon: "https://cdn.simpleicons.org/keepassxc",
       },
       {
         name: "User Support",
@@ -197,15 +197,15 @@ const skillCategories = [
       },
       {
         name: "Basic Networking",
-        icon: "https://cdn.simpleicons.org/cisco/1BA0D7",
+        icon: "https://cdn.simpleicons.org/cisco",
       },
       {
         name: "Hardware Setup",
-        icon: "https://cdn.simpleicons.org/amd/ED1C24",
+        icon: "https://cdn.simpleicons.org/amd",
       },
       {
         name: "IT Operations",
-        icon: "https://cdn.simpleicons.org/opsgenie/172B4D",
+        icon: "https://cdn.simpleicons.org/opsgenie",
       },
     ],
   },
@@ -214,15 +214,15 @@ const skillCategories = [
     skills: [
       {
         name: "Network Basics",
-        icon: "https://cdn.simpleicons.org/cisco/1BA0D7",
+        icon: "https://cdn.simpleicons.org/cisco",
       },
       {
         name: "IP Configuration",
-        icon: "https://cdn.simpleicons.org/internetarchive/666666",
+        icon: "https://cdn.simpleicons.org/internetarchive",
       },
       {
         name: "Cloud App Basics",
-        icon: "https://cdn.simpleicons.org/googlecloud/4285F4",
+        icon: "https://cdn.simpleicons.org/googlecloud",
       },
       {
         name: "Firebase Cloud Services",
@@ -230,7 +230,7 @@ const skillCategories = [
       },
       {
         name: "Hosting & Deployment",
-        icon: "https://cdn.simpleicons.org/vercel/000000",
+        icon: "https://cdn.simpleicons.org/vercel",
       },
     ],
   },
@@ -239,11 +239,11 @@ const skillCategories = [
     skills: [
       {
         name: "Document Management",
-        icon: "https://cdn.simpleicons.org/googledocs/4285F4",
+        icon: "https://cdn.simpleicons.org/googledocs",
       },
       {
         name: "Version Control",
-        icon: "https://cdn.simpleicons.org/git/F05032",
+        icon: "https://cdn.simpleicons.org/git",
       },
       {
         name: "Excel Reporting",
@@ -251,15 +251,15 @@ const skillCategories = [
       },
       {
         name: "File Organization",
-        icon: "https://cdn.simpleicons.org/googleDrive/34A853",
+        icon: "https://cdn.simpleicons.org/googledrive",
       },
       {
         name: "Technical Documentation",
-        icon: "https://cdn.simpleicons.org/notion/000000",
+        icon: "https://cdn.simpleicons.org/notion",
       },
       {
         name: "Workflow Documentation",
-        icon: "https://cdn.simpleicons.org/confluence/172B4D",
+        icon: "https://cdn.simpleicons.org/confluence",
       },
       {
         name: "Data Entry & Reporting",
@@ -280,11 +280,11 @@ const skillCategories = [
       },
       {
         name: "Social Media Creatives",
-        icon: "https://cdn.simpleicons.org/instagram/E4405F",
+        icon: "https://cdn.simpleicons.org/instagram",
       },
       {
         name: "UI Assets & Branding",
-        icon: "https://cdn.simpleicons.org/figma/F24E1E",
+        icon: "https://cdn.simpleicons.org/figma",
       },
       {
         name: "Presentation Design",
@@ -309,7 +309,7 @@ const skillCategories = [
       },
       {
         name: "Netlify",
-        icon: "https://cdn.simpleicons.org/netlify/00C7B7",
+        icon: "https://cdn.simpleicons.org/netlify",
       },
       {
         name: "Vercel",
