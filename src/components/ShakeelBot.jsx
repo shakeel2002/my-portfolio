@@ -102,17 +102,13 @@ const getProjectResponse = () =>
   `Here are key projects:\n\n${projects.map(formatProjectThreePoints).join("\n\n")}`;
 
 const getSkillsResponse = () =>
-  `Excel / Document Work
-• Used for reporting, tracking, and structured data management in live projects
-• Supports document control, version flow, and business workflow tracking
+  `AI / Development
+• Built full stack systems using Next.js, TypeScript, Node.js, FastAPI, PHP, and Supabase
+• Implemented AI integrations (YOLOv5, OpenCV, RAG, prompt engineering) with WhatsApp and Email automation workflows
 
-IT Support
-• Handled troubleshooting, software installation, and user support operations
-• Worked in Windows environments with system maintenance and networking basics
-
-AI / Development
-• Built full stack systems with modern UI, APIs, and automation workflows
-• Implemented AI integrations (YOLOv5, OpenCV, prompt engineering) for practical outcomes`;
+IT Support + Documentation
+• Handled troubleshooting, software installation, and user support operations across Windows environments
+• Managed Excel reporting, document control, version flow, and structured workflow tracking in live projects`;
 
 const getInterviewResponse = () =>
   `Why hire Shakeel:

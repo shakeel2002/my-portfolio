@@ -75,8 +75,16 @@ const skillCategories = [
     title: "Frontend Development",
     skills: [
       {
+        name: "Next.js",
+        icon: "https://cdn.simpleicons.org/nextdotjs",
+      },
+      {
         name: "React.js",
         icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
+      },
+      {
+        name: "TypeScript",
+        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
       },
       {
         name: "Tailwind",
@@ -106,6 +114,18 @@ const skillCategories = [
       {
         name: "REST API Development",
         icon: "https://cdn.simpleicons.org/json",
+      },
+      {
+        name: "FastAPI",
+        icon: "https://cdn.simpleicons.org/fastapi",
+      },
+      {
+        name: "PHP",
+        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg",
+      },
+      {
+        name: "Supabase",
+        icon: "https://cdn.simpleicons.org/supabase",
       },
     ],
   },
@@ -148,6 +168,23 @@ const skillCategories = [
       {
         name: "Prompt Engineering",
         icon: "https://cdn.simpleicons.org/openai",
+      },
+      {
+        name: "RAG",
+        icon: "https://img.icons8.com/color/96/knowledge-sharing.png",
+      },
+    ],
+  },
+  {
+    title: "Automation & Integrations",
+    skills: [
+      {
+        name: "WhatsApp Automation",
+        icon: "https://cdn.simpleicons.org/whatsapp",
+      },
+      {
+        name: "Email Automation",
+        icon: "https://img.icons8.com/color/96/new-post.png",
       },
     ],
   },
