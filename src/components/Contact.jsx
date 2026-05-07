@@ -23,7 +23,7 @@ const Contact = () => {
       setFormData({ name: "", email: "", phone: "", message: "" });
     } catch (err) {
       console.error(err);
-      setStatus("Failed to send. Please try again.");
+      setStatus(`Failed to send: ${err.message}`);
     }
   };
 
