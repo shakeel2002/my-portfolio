@@ -19,6 +19,7 @@ export const sendEmail = async (formData) => {
     const templateParams = {
       from_name: formData.name,       // Matches {{from_name}}
       from_email: formData.email,     // Matches {{from_email}}
+      phone: formData.phone,
       phone_number: formData.phone,   // Matches {{phone_number}}
       message: formData.message,      // Matches {{message}}
       reply_to: formData.email,
@@ -37,8 +38,13 @@ export const sendEmail = async (formData) => {
     return response;
   } catch (error) {
     console.error("Email error:", error);
-    const detail =
-      error?.text || error?.message || "Email service rejected the request.";
+    const detail = [
+      error?.text,
+      error?.message,
+      error?.status ? `status=${error.status}` : "",
+    ]
+      .filter(Boolean)
+      .join(" | ");
     throw new Error(detail);
   }
 };
