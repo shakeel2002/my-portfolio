@@ -106,34 +106,6 @@ body {
   box-shadow: 0 16px 34px rgba(221, 19, 59, 0.22), 0 8px 20px rgba(0, 0, 0, 0.42);
 }
 
-.section-3d::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background: linear-gradient(
-    120deg,
-    transparent 0%,
-    rgba(255, 255, 255, 0.08) 38%,
-    rgba(221, 19, 59, 0.08) 50%,
-    transparent 62%
-  );
-  transform: translateX(-120%);
-  animation: sectionSheen 7s ease-in-out infinite;
-}
-
-@keyframes sectionSheen {
-  0% {
-    transform: translateX(-120%);
-  }
-  45% {
-    transform: translateX(120%);
-  }
-  100% {
-    transform: translateX(120%);
-  }
-}
-
 /* Brighter, premium heading look */
 .heading-pop {
   background: linear-gradient(120deg, #ff224f 0%, #dd133b 45%, #c80f34 100%);
@@ -169,8 +141,7 @@ body {
   right: 12px;
   height: 2px;
   border-radius: 999px;
-  background-size: 200% 100%;
-  animation: sectionPathFlow 6s linear infinite;
+  background-size: 100% 100%;
   opacity: 0.9;
   pointer-events: none;
 }
@@ -199,15 +170,6 @@ body {
   background-image: linear-gradient(90deg, #dd133b 0%, #ff7ca2 50%, #ffd977 100%);
 }
 
-@keyframes sectionPathFlow {
-  0% {
-    background-position: 0% 50%;
-  }
-  100% {
-    background-position: 200% 50%;
-  }
-}
-
 /* Inner card reflection for nested boxes */
 .card-reflect {
   position: relative;
@@ -231,30 +193,3 @@ body {
   box-shadow: 0 12px 26px rgba(221, 19, 59, 0.2), 0 6px 14px rgba(0, 0, 0, 0.3);
 }
 
-.card-reflect::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  pointer-events: none;
-  background: linear-gradient(
-    120deg,
-    transparent 0%,
-    rgba(255, 255, 255, 0.08) 40%,
-    rgba(221, 19, 59, 0.09) 50%,
-    transparent 60%
-  );
-  transform: translateX(-120%);
-  animation: cardSheen 8s ease-in-out infinite;
-}
-
-@keyframes cardSheen {
-  0% {
-    transform: translateX(-120%);
-  }
-  45% {
-    transform: translateX(120%);
-  }
-  100% {
-    transform: translateX(120%);
-  }
-}

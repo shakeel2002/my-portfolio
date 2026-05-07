@@ -41,7 +41,7 @@ const Hero = () => {
       >
         <div className="flex flex-col gap-2 text-left max-w-2xl">
           {/* Responsive Text Size */}
-          <h1 className="text-3xl sm:text-5xl md:text-6xl font-black leading-tight tracking-tight bg-linear-to-r from-stitch-red to-[#f1cd5f] bg-clip-text text-transparent drop-shadow-[0_6px_16px_rgba(221,19,59,0.28)]">
+          <h1 className="text-3xl sm:text-5xl md:text-6xl font-black leading-tight tracking-tight bg-linear-to-r from-[#d4af37] via-[#f4e2a1] to-white bg-clip-text text-transparent drop-shadow-[0_6px_16px_rgba(212,175,55,0.34)]">
             Shakeel Ahamed
           </h1>
           <h2 className="text-white text-sm sm:text-lg md:text-xl font-normal leading-normal">

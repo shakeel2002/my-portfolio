@@ -1,38 +1,128 @@
 import React, { useEffect, useRef, useState } from "react";
 import profile from "../data/profile.json";
 import projects from "../data/projects.json";
-import skills from "../data/skills.json";
 
 const SESSION_MODE_KEY = "shakeel-bot-mode";
 const SESSION_FLOW_KEY = "shakeel-bot-flow";
 
-const MODES = { GENERAL: "GENERAL_MODE", INTERVIEW: "INTERVIEW_MODE", CLIENT: "CLIENT_MODE", CONTACT: "CONTACT_MODE" };
-const INTENTS = { ABOUT: "ABOUT", PROJECTS: "PROJECTS", CONTACT: "CONTACT", INTERVIEW: "INTERVIEW", SKILLS: "SKILLS", RESUME: "RESUME", CRM: "CRM", DEFAULT: "DEFAULT" };
+const MODES = {
+  GENERAL: "GENERAL_MODE",
+  INTERVIEW: "INTERVIEW_MODE",
+  CLIENT: "CLIENT_MODE",
+  CONTACT: "CONTACT_MODE",
+};
+const INTENTS = {
+  NAME: "NAME",
+  INTERVIEW: "INTERVIEW",
+  PROJECT: "PROJECT",
+  SKILLS: "SKILLS",
+  CONTACT: "CONTACT",
+  RESUME: "RESUME",
+  PERSONAL: "PERSONAL",
+  DEFAULT: "DEFAULT",
+};
 
 const containsAny = (text, words) => words.some((word) => text.includes(word));
 
 const detectIntent = (raw) => {
   const m = raw.toLowerCase().trim();
-  if (m === "about" || m === "tell about yourself") return INTENTS.ABOUT;
-  if (m === "projects" || m === "show projects" || m === "view projects") return INTENTS.PROJECTS;
-  if (m === "contact" || m === "email" || m === "whatsapp") return INTENTS.CONTACT;
-  if (m === "skills" || m.includes("skill")) return INTENTS.SKILLS;
+  if (containsAny(m, ["shakeel", "shakeel ahamed", "who is shakeel"]) || m === "about")
+    return INTENTS.NAME;
   if (m === "resume" || m === "cv" || m === "view resume") return INTENTS.RESUME;
-  if (m === "crm demo" || m.includes("crm")) return INTENTS.CRM;
-  if (containsAny(m, ["why should we hire", "hire", "experience", "strengths", "interview"])) return INTENTS.INTERVIEW;
-  if (containsAny(m, ["project", "build", "app", "website", "cost", "requirement"])) return INTENTS.PROJECTS;
+  if (
+    containsAny(m, [
+      "why should we hire",
+      "experience",
+      "tell about yourself",
+      "strengths",
+      "interview questions",
+      "hire",
+      "interview",
+      "hr",
+      "recruiter",
+      "job",
+    ])
+  )
+    return INTENTS.INTERVIEW;
+  if (
+    containsAny(m, [
+      "project",
+      "build",
+      "crm",
+      "app",
+      "website",
+      "cost",
+      "requirement",
+      "demo",
+    ])
+  )
+    return INTENTS.PROJECT;
+  if (
+    containsAny(m, [
+      "skills",
+      "skill",
+      "excel",
+      "it support",
+      "troubleshooting",
+      "ai",
+      "document",
+    ])
+  )
+    return INTENTS.SKILLS;
+  if (containsAny(m, ["contact", "email", "whatsapp", "talk"])) return INTENTS.CONTACT;
+  if (containsAny(m, ["age", "dob", "location", "status", "single"])) return INTENTS.PERSONAL;
   return INTENTS.DEFAULT;
 };
 
 const modeFromIntent = (intent) => {
-  if ([INTENTS.INTERVIEW, INTENTS.SKILLS, INTENTS.RESUME].includes(intent)) return MODES.INTERVIEW;
-  if ([INTENTS.PROJECTS, INTENTS.CRM].includes(intent)) return MODES.CLIENT;
+  if ([INTENTS.INTERVIEW, INTENTS.SKILLS, INTENTS.RESUME].includes(intent))
+    return MODES.INTERVIEW;
+  if (intent === INTENTS.PROJECT) return MODES.CLIENT;
   if (intent === INTENTS.CONTACT) return MODES.CONTACT;
   return MODES.GENERAL;
 };
 
-const renderProject = (project) =>
-  `• ${project.title}\n  ${project.description}\n  Tech: ${project.tech.join(", ")}`;
+const getAgeFromDob = (dob) => {
+  const [day, month, year] = dob.split("/").map(Number);
+  const today = new Date();
+  let age = today.getFullYear() - year;
+  const monthDiff = today.getMonth() + 1 - month;
+  const dayDiff = today.getDate() - day;
+  if (monthDiff < 0 || (monthDiff === 0 && dayDiff < 0)) age -= 1;
+  return age;
+};
+
+const formatProjectThreePoints = (project) =>
+  `✔ ${project.title}
+• ${project.description}
+• Built to deliver practical workflow execution with clear business value
+• Impact / Tech: ${project.tech.join(", ")}`;
+
+const getProjectResponse = () =>
+  `Here are key projects:\n\n${projects.map(formatProjectThreePoints).join("\n\n")}`;
+
+const getSkillsResponse = () =>
+  `Excel / Document Work
+• Used for reporting, tracking, and structured data management in live projects
+• Supports document control, version flow, and business workflow tracking
+
+IT Support
+• Handled troubleshooting, software installation, and user support operations
+• Worked in Windows environments with system maintenance and networking basics
+
+AI / Development
+• Built full stack systems with modern UI, APIs, and automation workflows
+• Implemented AI integrations (YOLOv5, OpenCV, prompt engineering) for practical outcomes`;
+
+const getInterviewResponse = () =>
+  `Why hire Shakeel:
+• Strong full stack + AI engineering capability for real-world product delivery
+• Hands-on project execution across CRM, AI apps, and workflow automation
+• Proven IT support and documentation control experience (Excel, version tracking)
+• Reliable problem-solving mindset with ownership from build to deployment
+• UAE job readiness with professional communication and active availability`;
+
+const CONTACT_PHONE = "+971589098875";
 
 const renderMessageText = (text) => {
   const parts = text.split(/(https?:\/\/[^\s]+)/g);
@@ -64,7 +154,12 @@ const ShakeelBot = () => {
     const saved = sessionStorage.getItem(SESSION_FLOW_KEY);
     return saved
       ? JSON.parse(saved)
-      : { clientAskedFollowUp: false, whatsappShown: false, contactShown: false };
+      : {
+          clientAskedFollowUp: false,
+          whatsappShown: false,
+          contactShown: false,
+          lastIntent: "",
+        };
   });
   const [isTyping, setIsTyping] = useState(false);
   const messagesEndRef = useRef(null);
@@ -73,7 +168,7 @@ const ShakeelBot = () => {
       role: "assistant",
       content: "Hi 👋 I'm Shakeel Bot. How can I help you today?",
       actions: [
-        { label: "About", query: "about" },
+        { label: "About", query: "who is shakeel" },
         { label: "Projects", query: "projects" },
         { label: "Contact", query: "contact" },
       ],
@@ -103,108 +198,102 @@ const ShakeelBot = () => {
     const nextMode = modeFromIntent(intent);
     setMode(nextMode);
 
-    setMessages((prev) => [
-      ...prev,
-      { role: "user", content: userText },
-    ]);
-
+    setMessages((prev) => [...prev, { role: "user", content: userText }]);
     setIsTyping(true);
 
     setTimeout(() => {
-      let reply =
-        "I’m mainly here to help with portfolio, projects, interview details, and contact information.";
+      let reply = "";
       let actions = [];
       const nextFlow = { ...flowState };
+      const showActions = flowState.lastIntent !== intent;
 
-      if (intent === INTENTS.ABOUT) {
-        reply = `I'm ${profile.name}, based in ${profile.location}.\n\nWhy hire me:\n• Strong full stack execution from UI to backend\n• AI workflow integration for real business use\n• Reliable delivery, communication, documentation\n\nI focus on production-ready systems.`;
-        actions = [
-          { label: "Projects", query: "projects" },
-          { label: "Skills", query: "skills" },
-          { label: "Contact", query: "contact" },
-        ];
+      if (intent === INTENTS.NAME) {
+        reply = `${profile.name} is a Full Stack Developer + AI Engineer based in ${profile.location}.\n\nHe is actively job searching and focused on building scalable products, IT-supported workflows, and business-ready systems.`;
+        actions = showActions
+          ? [
+              { label: "Projects", query: "projects" },
+              { label: "Skills", query: "skills" },
+              { label: "Contact", query: "contact" },
+            ]
+          : [];
       } else if (intent === INTENTS.INTERVIEW) {
-        reply = `I'm ${profile.name}, based in ${profile.location}.\n\nWhy hire me:\n• Strong full stack execution from UI to backend\n• Hands-on AI workflow integration for real business use\n• Reliable delivery, communication, and documentation\n\nI focus on production-ready systems, not just demos.`;
-        actions = [
-          { label: "View Resume", url: profile.resumePath },
-          { label: "Skills", query: "skills" },
-          { label: "Experience", query: "experience" },
-        ];
+        reply = getInterviewResponse();
+        actions = showActions
+          ? [
+              { label: "Resume", query: "resume" },
+              { label: "Skills", query: "skills" },
+              { label: "Experience", query: "interview questions" },
+            ]
+          : [];
       } else if (intent === INTENTS.SKILLS) {
-        reply = `My Skills:\n\nFrontend:\n• React.js, Tailwind CSS\n\nBackend:\n• Node.js, Flask\n\nAI:\n• TensorFlow, OpenCV\n\nTools:\n• Git, Supabase, Firebase`;
-        actions = [
-          { label: "Projects", query: "projects" },
-          { label: "About", query: "about" },
-          { label: "Contact", query: "contact" },
-        ];
+        reply = getSkillsResponse();
+        actions = showActions
+          ? [
+              { label: "Projects", query: "projects" },
+              { label: "Resume", query: "resume" },
+            ]
+          : [];
       } else if (intent === INTENTS.RESUME) {
         reply = `You can view my resume here:\n${profile.resumePath}`;
-        actions = [
-          { label: "Skills", query: "skills" },
-          { label: "Experience", query: "experience" },
-        ];
-      } else if (intent === INTENTS.PROJECTS || intent === INTENTS.CRM) {
-        const crmProject = projects.find((project) => project.id === "smart-crm-system") || projects[0];
-        const allProjects = projects.map((project) => `• ${project.title}`).join("\n");
+        actions = showActions
+          ? [
+              { label: "View Resume", url: profile.resumePath },
+              { label: "Projects", query: "projects" },
+            ]
+          : [{ label: "View Resume", url: profile.resumePath }];
+      } else if (intent === INTENTS.PROJECT) {
         if (!nextFlow.clientAskedFollowUp) {
-          reply = `Here are my key projects:\n${allProjects}\n\n${renderProject(crmProject)}\n\nCould you share your main requirement in one line?`;
+          reply = `${getProjectResponse()}\n\nCould you share your requirement in one line (website, AI system, or mobile app)?`;
           nextFlow.clientAskedFollowUp = true;
-          actions = [
-            { label: "View CRM", query: "crm demo" },
-            { label: "AI Projects", query: "projects" },
-          ];
+          actions = showActions
+            ? [
+                { label: "WhatsApp", url: profile.whatsappLink },
+                { label: "Call", query: "contact" },
+              ]
+            : [];
         } else if (!nextFlow.whatsappShown) {
-          reply = `Great, thank you.\n\nLet's continue on WhatsApp for faster communication:\n${profile.whatsappLink}`;
+          reply = `Let's continue on WhatsApp for faster communication.\nPhone: ${CONTACT_PHONE}`;
           nextFlow.whatsappShown = true;
-          actions = [{ label: "WhatsApp Now", url: profile.whatsappLink }];
+          actions = [
+            { label: "WhatsApp Now", url: profile.whatsappLink },
+            { label: "Phone", query: "contact" },
+          ];
         } else {
-          reply = renderProject(crmProject);
-          actions = [{ label: "WhatsApp Now", url: profile.whatsappLink }];
+          reply = `${getProjectResponse()}\n\nFor project discussion:\nPhone: ${CONTACT_PHONE}`;
+          actions = [
+            { label: "WhatsApp", url: profile.whatsappLink },
+            { label: "Email", url: `mailto:${profile.email}` },
+          ];
         }
       } else if (intent === INTENTS.CONTACT) {
         if (!nextFlow.contactShown) {
-          reply = `You can contact Shakeel here:\n\n📧 ${profile.email}\n📱 WhatsApp available for quick discussion`;
+          reply = `You can contact ${profile.name} here:\n\n📞 ${CONTACT_PHONE}\n📧 ${profile.email}\nWhatsApp is available on this number.`;
           nextFlow.contactShown = true;
         } else {
-          reply = `You can reach me on:\n📧 ${profile.email}\n📱 ${profile.whatsappLink}`;
+          reply = `Contact details:\n📞 ${CONTACT_PHONE}\n📧 ${profile.email}`;
         }
         actions = [
-          { label: "WhatsApp Now", url: profile.whatsappLink },
           { label: "Email", url: `mailto:${profile.email}` },
+          { label: "WhatsApp", url: profile.whatsappLink },
         ];
-      } else if (normalized === "experience") {
-        reply = `Experience highlights:\n• ${skills.experienceHighlights.join("\n• ")}`;
-        actions = [
-          { label: "View Resume", url: profile.resumePath },
-          { label: "Skills", query: "skills" },
-        ];
+      } else if (intent === INTENTS.PERSONAL) {
+        const age = getAgeFromDob(profile.dob);
+        reply = `${profile.name} is ${age} years old, born on ${profile.dob}, currently based in ${profile.location}. He is ${profile.status.toLowerCase()} and ${profile.jobStatus.toLowerCase()}.`;
+      } else if (flowState.lastIntent === INTENTS.DEFAULT) {
+        reply =
+          "I’m mainly here to help with Shakeel’s portfolio, projects, and professional information 😊";
       } else {
-        if (nextMode === MODES.INTERVIEW) {
-          reply = `I'm ${profile.name}, based in ${profile.location}.\n\nWhy hire me:\n• Strong full stack execution from UI to backend\n• Hands-on AI workflow integration for real business use\n• Reliable delivery, communication, and documentation\n\nI focus on production-ready systems, not just demos.`;
-          actions = [
-            { label: "View Resume", url: profile.resumePath },
-            { label: "Skills", query: "skills" },
-            { label: "Experience", query: "experience" },
-          ];
-        } else if (nextMode === MODES.CLIENT) {
-          reply = `Please share your requirement scope and timeline.`;
-          actions = [{ label: "WhatsApp Now", url: profile.whatsappLink }];
-        } else if (nextMode === MODES.CONTACT) {
-          reply = `You can reach me here:\n📧 ${profile.email}\n📱 ${profile.whatsappLink}`;
-          actions = [
-            { label: "WhatsApp Now", url: profile.whatsappLink },
-            { label: "Email", url: `mailto:${profile.email}` },
-          ];
-        } else {
-          reply = "Hi 👋 I'm Shakeel Bot. How can I help you today?";
-          actions = [
-            { label: "About", query: "about" },
-            { label: "Projects", query: "projects" },
-            { label: "Contact", query: "contact" },
-          ];
-        }
+        reply = "Hi 👋 I'm Shakeel Bot. How can I help you today?";
+        actions = showActions
+          ? [
+              { label: "About", query: "who is shakeel" },
+              { label: "Projects", query: "projects" },
+              { label: "Contact", query: "contact" },
+            ]
+          : [];
       }
 
+      nextFlow.lastIntent = intent;
       setFlowState(nextFlow);
       setIsTyping(false);
       setMessages((prev) => {
@@ -214,7 +303,7 @@ const ShakeelBot = () => {
         }
         return [...prev, { role: "assistant", content: reply, actions }];
       });
-    }, 500);
+    }, 450);
   };
 
   const handleSubmit = (e) => {
