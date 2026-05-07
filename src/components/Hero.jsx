@@ -1,7 +1,21 @@
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useEffect, useState } from "react";
+import { AnimatePresence, motion } from "framer-motion";
 
 const Hero = () => {
+  const pitchLines = [
+    "Building production-ready full stack products",
+    "Turning business workflows into smart automation",
+    "Designing clean UI with measurable business impact",
+  ];
+  const [pitchIndex, setPitchIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setPitchIndex((prev) => (prev + 1) % pitchLines.length);
+    }, 2500);
+    return () => clearInterval(interval);
+  }, [pitchLines.length]);
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
@@ -27,7 +41,7 @@ const Hero = () => {
       >
         <div className="flex flex-col gap-2 text-left max-w-2xl">
           {/* Responsive Text Size */}
-          <h1 className="text-white text-3xl sm:text-5xl md:text-6xl font-black leading-tight tracking-tight">
+          <h1 className="text-3xl sm:text-5xl md:text-6xl font-black leading-tight tracking-tight bg-linear-to-r from-stitch-red to-[#f1cd5f] bg-clip-text text-transparent drop-shadow-[0_6px_16px_rgba(221,19,59,0.28)]">
             Shakeel Ahamed
           </h1>
           <h2 className="text-white text-sm sm:text-lg md:text-xl font-normal leading-normal">
@@ -35,6 +49,21 @@ const Hero = () => {
             <span className="text-stitch-gold font-bold">AI</span> & Full-Stack
             Developer
           </h2>
+
+          <div className="min-h-7 mt-2">
+            <AnimatePresence mode="wait">
+              <motion.p
+                key={pitchLines[pitchIndex]}
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -8 }}
+                transition={{ duration: 0.35 }}
+                className="text-white/90 text-xs sm:text-sm md:text-base"
+              >
+                {pitchLines[pitchIndex]}
+              </motion.p>
+            </AnimatePresence>
+          </div>
         </div>
 
         <div className="flex flex-wrap gap-3">
@@ -64,6 +93,14 @@ const Hero = () => {
             View Resume
           </motion.a>
         </div>
+
+        <motion.div
+          animate={{ y: [0, 6, 0], opacity: [0.6, 1, 0.6] }}
+          transition={{ duration: 1.6, repeat: Infinity }}
+          className="text-white/80 text-xs mt-2"
+        >
+          Scroll to explore
+        </motion.div>
       </div>
     </motion.div>
   );

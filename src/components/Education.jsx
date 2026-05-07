@@ -1,14 +1,21 @@
 import React from "react";
+import { motion } from "framer-motion";
 
 const Education = () => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 px-4 py-6">
+    <motion.div
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.25 }}
+      whileHover={{ y: -4 }}
+      className="grid grid-cols-1 md:grid-cols-2 gap-6 px-4 py-6 section-3d section-path path-education"
+    >
       {/* Education */}
       <div className="flex flex-col gap-4 h-full">
-        <h2 className="text-stitch-black text-[22px] font-bold leading-tight">
+        <h2 className="heading-pop text-[22px] font-bold leading-tight">
           Education
         </h2>
-        <div className="bg-stitch-card p-6 rounded-lg border border-stitch-pink h-full shadow-sm flex flex-col justify-between">
+        <div className="card-reflect p-6 rounded-lg h-full shadow-sm flex flex-col justify-between">
           <div>
             <h3 className="font-bold text-lg text-stitch-black">
               B.Tech Information Technology
@@ -27,10 +34,10 @@ const Education = () => {
 
       {/* Certifications */}
       <div className="flex flex-col gap-4 h-full">
-        <h2 className="text-stitch-black text-[22px] font-bold leading-tight">
+        <h2 className="heading-pop text-[22px] font-bold leading-tight">
           Certifications
         </h2>
-        <div className="bg-stitch-card p-6 rounded-lg border border-stitch-pink h-full shadow-sm">
+        <div className="card-reflect p-6 rounded-lg h-full shadow-sm">
           <ul className="space-y-3 text-stitch-black text-sm">
             <li className="flex items-center gap-3">
               <span className="text-stitch-red font-bold">✓</span> Foundation of
@@ -50,7 +57,7 @@ const Education = () => {
           </ul>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 

@@ -8,6 +8,7 @@ import Projects from "./components/Projects";
 import Education from "./components/Education";
 import Contact from "./components/Contact";
 import SocialLinks from "./components/SocialLinks";
+import ShakeelBot from "./components/ShakeelBot";
 
 function App() {
   const [darkMode, setDarkMode] = useState(false);
@@ -34,8 +35,9 @@ function App() {
   return (
     <div className="relative flex min-h-screen w-full flex-col overflow-x-hidden font-sans group/design-root bg-stitch-bg transition-colors duration-300">
       <Navbar darkMode={darkMode} toggleTheme={toggleTheme} />
+      <ShakeelBot />
 
-      <div className="layout-container flex h-full grow flex-col">
+      <div className="layout-container relative z-10 flex h-full grow flex-col">
         {/* RESPONSIVE PADDING FIX: px-4 (Mobile) -> md:px-8 (Tablet) -> lg:px-12 (Desktop) */}
         <div className="px-4 md:px-8 lg:px-12 flex flex-1 justify-center py-5">
           {/* MAX WIDTH CONSTRAINT: Prevents site from looking stretched on wide monitors */}

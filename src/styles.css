@@ -79,3 +79,182 @@ body {
   -ms-overflow-style: none;
   scrollbar-width: none;
 }
+
+/* 2026-style reusable section depth */
+.section-3d {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border: 1px solid var(--stitch-border);
+  border-radius: 18px;
+  background: linear-gradient(
+      160deg,
+      color-mix(in srgb, var(--stitch-card-bg) 95%, #ffffff 5%) 0%,
+      color-mix(in srgb, var(--stitch-card-bg) 90%, #fceff2 10%) 100%
+    );
+  box-shadow: 0 14px 30px rgba(221, 19, 59, 0.14), 0 6px 16px rgba(0, 0, 0, 0.06);
+  backdrop-filter: blur(6px);
+  margin-top: 14px;
+}
+
+.dark .section-3d {
+  background: linear-gradient(
+      160deg,
+      color-mix(in srgb, var(--stitch-card-bg) 96%, #1e1e1e 4%) 0%,
+      color-mix(in srgb, var(--stitch-card-bg) 88%, #2b1a1f 12%) 100%
+    );
+  box-shadow: 0 16px 34px rgba(221, 19, 59, 0.22), 0 8px 20px rgba(0, 0, 0, 0.42);
+}
+
+.section-3d::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    120deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.08) 38%,
+    rgba(221, 19, 59, 0.08) 50%,
+    transparent 62%
+  );
+  transform: translateX(-120%);
+  animation: sectionSheen 7s ease-in-out infinite;
+}
+
+@keyframes sectionSheen {
+  0% {
+    transform: translateX(-120%);
+  }
+  45% {
+    transform: translateX(120%);
+  }
+  100% {
+    transform: translateX(120%);
+  }
+}
+
+/* Brighter, premium heading look */
+.heading-pop {
+  background: linear-gradient(120deg, #ff224f 0%, #dd133b 45%, #c80f34 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.12), 0 8px 20px rgba(221, 19, 59, 0.26);
+}
+
+.dark .heading-pop {
+  background: linear-gradient(
+    120deg,
+    color-mix(in srgb, #d4af37 72%, #ffffff 28%) 0%,
+    color-mix(in srgb, #ffd977 70%, #ffffff 30%) 52%,
+    color-mix(in srgb, #ffffff 94%, #d4af37 6%) 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.08), 0 8px 22px rgba(221, 19, 59, 0.26);
+}
+
+/* Unique animated path accent per section */
+.section-path {
+  position: relative;
+}
+
+.section-path::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 12px;
+  right: 12px;
+  height: 2px;
+  border-radius: 999px;
+  background-size: 200% 100%;
+  animation: sectionPathFlow 6s linear infinite;
+  opacity: 0.9;
+  pointer-events: none;
+}
+
+.path-about::after {
+  background-image: linear-gradient(90deg, #dd133b 0%, #ff6d8a 45%, #d4af37 100%);
+}
+
+.path-skills::after {
+  background-image: linear-gradient(90deg, #d4af37 0%, #8ad4ff 50%, #dd133b 100%);
+}
+
+.path-experience::after {
+  background-image: linear-gradient(90deg, #ff5a7a 0%, #f1cd5f 40%, #9d7bff 100%);
+}
+
+.path-projects::after {
+  background-image: linear-gradient(90deg, #dd133b 0%, #ff9d5c 35%, #d4af37 100%);
+}
+
+.path-education::after {
+  background-image: linear-gradient(90deg, #6aa9ff 0%, #d4af37 45%, #dd133b 100%);
+}
+
+.path-contact::after {
+  background-image: linear-gradient(90deg, #dd133b 0%, #ff7ca2 50%, #ffd977 100%);
+}
+
+@keyframes sectionPathFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 200% 50%;
+  }
+}
+
+/* Inner card reflection for nested boxes */
+.card-reflect {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  border: 1px solid var(--stitch-border);
+  background: linear-gradient(
+    145deg,
+    color-mix(in srgb, var(--stitch-card-bg) 95%, #ffffff 5%) 0%,
+    color-mix(in srgb, var(--stitch-card-bg) 88%, #f9e8ec 12%) 100%
+  );
+  box-shadow: 0 10px 24px rgba(221, 19, 59, 0.12), 0 4px 10px rgba(0, 0, 0, 0.06);
+}
+
+.dark .card-reflect {
+  background: linear-gradient(
+    145deg,
+    color-mix(in srgb, var(--stitch-card-bg) 96%, #1b1b1b 4%) 0%,
+    color-mix(in srgb, var(--stitch-card-bg) 85%, #28171d 15%) 100%
+  );
+  box-shadow: 0 12px 26px rgba(221, 19, 59, 0.2), 0 6px 14px rgba(0, 0, 0, 0.3);
+}
+
+.card-reflect::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    120deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.08) 40%,
+    rgba(221, 19, 59, 0.09) 50%,
+    transparent 60%
+  );
+  transform: translateX(-120%);
+  animation: cardSheen 8s ease-in-out infinite;
+}
+
+@keyframes cardSheen {
+  0% {
+    transform: translateX(-120%);
+  }
+  45% {
+    transform: translateX(120%);
+  }
+  100% {
+    transform: translateX(120%);
+  }
+}

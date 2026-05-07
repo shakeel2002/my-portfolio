@@ -1,0 +1,37 @@
+[
+  {
+    "id": "smart-crm-system",
+    "title": "Smart CRM System",
+    "description": "Workflow management platform from enquiry to completion with automation and AI-assisted operations.",
+    "tech": ["Next.js", "Node.js", "Express", "PostgreSQL", "Supabase"],
+    "keywords": ["crm", "workflow", "client", "requirement", "business"]
+  },
+  {
+    "id": "ai-quiz-chat-app",
+    "title": "AI-Powered Quiz & Chat App",
+    "description": "Interactive quiz application with chatbot integration and intelligent response flow.",
+    "tech": ["Java", "XML", "Flask", "Node.js"],
+    "keywords": ["quiz", "chat", "ai", "app"]
+  },
+  {
+    "id": "scobby-alert-system",
+    "title": "Scobby Alert System",
+    "description": "Computer vision system for object detection and load monitoring with real-time safety insights.",
+    "tech": ["Python", "YOLOv5", "OpenCV"],
+    "keywords": ["vision", "camera", "monitoring", "detection", "safety"]
+  },
+  {
+    "id": "trading-learning-platform",
+    "title": "Trading Learning Platform",
+    "description": "Learning platform with dashboards, real-time charting, and structured trading modules.",
+    "tech": ["React", "Flask", "MySQL"],
+    "keywords": ["trading", "dashboard", "platform", "learning"]
+  },
+  {
+    "id": "ai-voice-agent",
+    "title": "AI Voice Agent",
+    "description": "Voice-based assistant for real-time interaction with modern API integrations.",
+    "tech": ["React", "Google Studio APIs"],
+    "keywords": ["voice", "agent", "speech", "assistant"]
+  }
+]

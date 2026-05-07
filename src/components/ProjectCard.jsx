@@ -7,15 +7,38 @@ const ProjectCard = ({ title, desc, tech, img, link }) => {
       href={link}
       target="_blank"
       rel="noopener noreferrer"
-      whileHover={{ y: -5 }}
+      initial={{ opacity: 0, y: 22 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.25 }}
+      whileHover={{
+        y: -8,
+        scale: 1.02,
+        rotateX: -2.5,
+        rotateY: 2.5,
+      }}
+      transition={{ type: "spring", stiffness: 220, damping: 18 }}
       /* 
          RESPONSIVE UPDATE:
          Changed w-[85vw] to w-[80vw]. 
          This shows MORE of the next card (the "peek" effect), 
          visually telling the user "Hey, there is more stuff here!"
       */
-      className="flex flex-col w-[80vw] sm:w-[320px] h-full rounded-xl border border-stitch-pink bg-stitch-card p-4 shadow-sm cursor-pointer hover:border-stitch-red transition-all duration-300 group"
+      className="card-reflect relative flex flex-col w-[80vw] sm:w-[320px] h-full rounded-xl p-4 shadow-sm cursor-pointer hover:border-stitch-red transition-all duration-300 group"
+      style={{ transformStyle: "preserve-3d" }}
     >
+      {/* Premium moving sheen pass */}
+      <motion.div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 rounded-xl"
+        initial={{ x: "-130%" }}
+        animate={{ x: ["-130%", "130%"] }}
+        transition={{ duration: 2.8, repeat: Infinity, repeatDelay: 3.8, ease: "easeInOut" }}
+        style={{
+          background:
+            "linear-gradient(110deg, transparent 0%, rgba(255,255,255,0.08) 46%, rgba(221,19,59,0.14) 52%, transparent 62%)",
+        }}
+      />
+
       {/* Image Container */}
       <div className="relative w-full aspect-video rounded-lg overflow-hidden bg-gray-200">
         <img

@@ -1,5 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { motion } from "framer-motion";
+
+const DEFAULT_SKILL_ICON =
+  "https://img.icons8.com/fluency/96/maintenance.png";
 
 // --- DATA ---
 const skillCategories = [
@@ -80,8 +83,12 @@ const skillCategories = [
         icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg",
       },
       {
-        name: "UI Design",
+        name: "UI/UX Design",
         icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg",
+      },
+      {
+        name: "Responsive Web Design",
+        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg",
       },
     ],
   },
@@ -97,7 +104,7 @@ const skillCategories = [
         icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
       },
       {
-        name: "REST API",
+        name: "REST API Development",
         icon: "https://cdn.simpleicons.org/json/000",
       },
     ],
@@ -117,6 +124,10 @@ const skillCategories = [
         name: "Firebase",
         icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg",
       },
+      {
+        name: "Flutter",
+        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg",
+      },
     ],
   },
   {
@@ -130,10 +141,18 @@ const skillCategories = [
         name: "OpenCV",
         icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/opencv/opencv-original.svg",
       },
+      {
+        name: "YOLOv5",
+        icon: "https://img.icons8.com/color/96/object.png",
+      },
+      {
+        name: "Prompt Engineering",
+        icon: "https://cdn.simpleicons.org/openai",
+      },
     ],
   },
   {
-    title: "Databases",
+    title: "Database Management",
     skills: [
       {
         name: "MySQL",
@@ -154,6 +173,126 @@ const skillCategories = [
     ],
   },
   {
+    title: "IT Support & Systems",
+    skills: [
+      {
+        name: "Technical Support",
+        icon: "https://img.icons8.com/color/96/technical-support.png",
+      },
+      {
+        name: "Software Installation",
+        icon: "https://img.icons8.com/color/96/installing-updates.png",
+      },
+      {
+        name: "System Maintenance",
+        icon: "https://cdn.simpleicons.org/keepassxc/6CAC4D",
+      },
+      {
+        name: "User Support",
+        icon: "https://img.icons8.com/color/96/customer-support.png",
+      },
+      {
+        name: "Windows Environment",
+        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/windows8/windows8-original.svg",
+      },
+      {
+        name: "Basic Networking",
+        icon: "https://cdn.simpleicons.org/cisco/1BA0D7",
+      },
+      {
+        name: "Hardware Setup",
+        icon: "https://cdn.simpleicons.org/amd/ED1C24",
+      },
+      {
+        name: "IT Operations",
+        icon: "https://cdn.simpleicons.org/opsgenie/172B4D",
+      },
+    ],
+  },
+  {
+    title: "Networking & Cloud",
+    skills: [
+      {
+        name: "Network Basics",
+        icon: "https://cdn.simpleicons.org/cisco/1BA0D7",
+      },
+      {
+        name: "IP Configuration",
+        icon: "https://cdn.simpleicons.org/internetarchive/666666",
+      },
+      {
+        name: "Cloud App Basics",
+        icon: "https://cdn.simpleicons.org/googlecloud/4285F4",
+      },
+      {
+        name: "Firebase Cloud Services",
+        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg",
+      },
+      {
+        name: "Hosting & Deployment",
+        icon: "https://cdn.simpleicons.org/vercel/000000",
+      },
+    ],
+  },
+  {
+    title: "Document Control & Administration",
+    skills: [
+      {
+        name: "Document Management",
+        icon: "https://cdn.simpleicons.org/googledocs/4285F4",
+      },
+      {
+        name: "Version Control",
+        icon: "https://cdn.simpleicons.org/git/F05032",
+      },
+      {
+        name: "Excel Reporting",
+        icon: "https://img.icons8.com/color/96/microsoft-excel-2019--v1.png",
+      },
+      {
+        name: "File Organization",
+        icon: "https://cdn.simpleicons.org/googleDrive/34A853",
+      },
+      {
+        name: "Technical Documentation",
+        icon: "https://cdn.simpleicons.org/notion/000000",
+      },
+      {
+        name: "Workflow Documentation",
+        icon: "https://cdn.simpleicons.org/confluence/172B4D",
+      },
+      {
+        name: "Data Entry & Reporting",
+        icon: "https://img.icons8.com/color/96/combo-chart--v1.png",
+      },
+    ],
+  },
+  {
+    title: "Graphic Design & Creative",
+    skills: [
+      {
+        name: "Graphic Design",
+        icon: "https://img.icons8.com/color/96/design.png",
+      },
+      {
+        name: "Banner & Poster Design",
+        icon: "https://img.icons8.com/color/96/banner.png",
+      },
+      {
+        name: "Social Media Creatives",
+        icon: "https://cdn.simpleicons.org/instagram/E4405F",
+      },
+      {
+        name: "UI Assets & Branding",
+        icon: "https://cdn.simpleicons.org/figma/F24E1E",
+      },
+      {
+        name: "Presentation Design",
+        icon: "https://img.icons8.com/color/96/microsoft-powerpoint-2019--v1.png",
+      },
+    ],
+  },
+  {
     title: "Tools & Hosting",
     skills: [
       {
@@ -169,8 +308,16 @@ const skillCategories = [
         icon: "https://www.svgrepo.com/show/354202/postman-icon.svg",
       },
       {
-        name: "Netlify/Vercel",
+        name: "Netlify",
+        icon: "https://cdn.simpleicons.org/netlify/00C7B7",
+      },
+      {
+        name: "Vercel",
         icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vercel/vercel-original.svg",
+      },
+      {
+        name: "Android Studio",
+        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/androidstudio/androidstudio-original.svg",
       },
     ],
   },
@@ -191,6 +338,8 @@ const skillCategories = [
 
 // --- COMPONENT: INDIVIDUAL SKILL ITEM (The 3D Icon) ---
 const SkillItem = ({ name, icon, special }) => {
+  const [imgSrc, setImgSrc] = useState(icon);
+
   return (
     <motion.div
       whileHover={{
@@ -221,9 +370,16 @@ const SkillItem = ({ name, icon, special }) => {
         className="w-10 h-10 mb-2 flex items-center justify-center"
       >
         <img
-          src={icon}
+          src={imgSrc}
           alt={name}
           className="w-full h-full object-contain drop-shadow-sm"
+          onError={(e) => {
+            if (imgSrc !== DEFAULT_SKILL_ICON) {
+              setImgSrc(DEFAULT_SKILL_ICON);
+            } else {
+              e.currentTarget.onerror = null;
+            }
+          }}
         />
       </motion.div>
 
@@ -245,7 +401,7 @@ const CategoryCard = ({ category }) => {
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
-      className="flex flex-col gap-4 p-5 rounded-xl border border-stitch-pink bg-stitch-card shadow-sm hover:shadow-md transition-shadow duration-300 h-full"
+      className="card-reflect flex flex-col gap-4 p-5 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 h-full"
     >
       <h3 className="text-stitch-black font-bold text-lg border-b border-stitch-pink pb-2">
         {category.title}
@@ -269,8 +425,8 @@ const CategoryCard = ({ category }) => {
 // --- MAIN SKILLS COMPONENT ---
 const Skills = () => {
   return (
-    <section id="skills" className="py-8">
-      <h2 className="text-stitch-black text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-6 pt-5">
+    <section id="skills" className="py-8 section-3d section-path path-skills">
+      <h2 className="heading-pop text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-6 pt-5">
         Skills & Expertise
       </h2>
 
@@ -289,7 +445,7 @@ const Skills = () => {
 
       {/* Soft Skills - Simple Pill Layout at Bottom */}
       <div className="px-4 mt-8">
-        <div className="p-5 rounded-xl border border-stitch-pink bg-stitch-card shadow-sm">
+        <div className="card-reflect p-5 rounded-xl shadow-sm">
           <h3 className="text-stitch-black font-bold text-lg border-b border-stitch-pink pb-3 mb-4">
             Soft Skills
           </h3>
@@ -301,6 +457,8 @@ const Skills = () => {
               "Communication",
               "Time Management",
               "Adaptability",
+              "Fast Learning",
+              "Client Handling",
             ].map((soft, i) => (
               <span
                 key={i}

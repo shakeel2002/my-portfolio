@@ -1,9 +1,73 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import ProjectCard from "./ProjectCard";
-import { motion } from "framer-motion";
 
 const Projects = () => {
+  const sectionRef = useRef(null);
+  const trackRef = useRef(null);
+
+  const scrollCards = (direction) => {
+    const el = trackRef.current;
+    if (!el) return;
+    el.scrollBy({ left: direction * 320, behavior: "smooth" });
+  };
+
+  useEffect(() => {
+    const el = trackRef.current;
+    const sectionEl = sectionRef.current;
+    if (!el || !sectionEl) return;
+
+    // Ensure rail starts from first card.
+    el.scrollLeft = 0;
+
+    // Keep mobile/tablet touch scrolling fully native and simple.
+    const enableWheelLock =
+      window.matchMedia("(min-width: 768px) and (pointer: fine)").matches;
+    if (!enableWheelLock) return;
+
+    const moveHorizontally = (event) => {
+      const hasHorizontalOverflow = el.scrollWidth > el.clientWidth + 2;
+      if (!hasHorizontalOverflow) return;
+
+      if (Math.abs(event.deltaY) < 2) return;
+
+      const atStart = el.scrollLeft <= 0;
+      const atEnd = el.scrollLeft + el.clientWidth >= el.scrollWidth - 2;
+      const goingForward = event.deltaY > 0;
+      const shouldCapture =
+        (goingForward && !atEnd) || (!goingForward && !atStart);
+
+      if (shouldCapture) {
+        event.preventDefault();
+        el.scrollLeft += event.deltaY * 0.75;
+      }
+    };
+
+    // Capture page wheel while projects section is active in viewport.
+    const onWindowWheel = (event) => {
+      const rect = sectionEl.getBoundingClientRect();
+      const sectionActive =
+        rect.top < window.innerHeight * 0.58 &&
+        rect.bottom > window.innerHeight * 0.42;
+
+      if (!sectionActive) return;
+      moveHorizontally(event);
+    };
+
+    window.addEventListener("wheel", onWindowWheel, { passive: false });
+    return () => {
+      window.removeEventListener("wheel", onWindowWheel);
+    };
+  }, []);
+
   const projects = [
+    {
+      title: "Smart CRM System",
+      desc: "Modern CRM and workflow platform managing the full journey from enquiry to project completion with automation, dashboards, and AI-assisted operations.",
+      tech: "Next.js, Node.js, Express, PostgreSQL, Supabase",
+      link: "https://github.com/shakeel2002/my-portfolio",
+      // Image: Modern dashboard / CRM workflow visualization
+      img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2069&auto=format&fit=crop",
+    },
     {
       title: "AI-Powered Quiz & Chat App",
       desc: "Interactive Quiz App with AI chat integration. Features intelligent response generation using Flask & Node.js.",
@@ -39,33 +103,48 @@ const Projects = () => {
   ];
 
   return (
-    <section id="projects" className="py-8">
-      <div className="flex justify-between items-end px-4 pb-4">
-        <h2 className="text-stitch-black text-[22px] font-bold leading-tight tracking-[-0.015em]">
+    <section
+      id="projects"
+      ref={sectionRef}
+      className="py-8 section-3d section-path path-projects"
+    >
+      <div className="flex justify-between items-end px-4 pb-4 gap-3">
+        <h2 className="heading-pop text-[22px] font-bold leading-tight tracking-[-0.015em]">
           Projects
         </h2>
-
-        {/* SWIPE HINT - Removed 'md:hidden' so it shows on Laptop too */}
-        <motion.div
-          initial={{ opacity: 0.6, x: 0 }}
-          animate={{ opacity: 1, x: [0, 5, 0] }}
-          transition={{ duration: 1.5, repeat: Infinity }}
-          className="text-xs font-medium text-stitch-red flex items-center gap-1 cursor-default"
-        >
-          Swipe/Scroll <span>→</span>
-        </motion.div>
+        <div className="flex items-center gap-2">
+          <button
+            type="button"
+            onClick={() => scrollCards(-1)}
+            className="h-8 w-8 rounded-full border border-stitch-pink text-stitch-red hover:bg-stitch-input transition-colors"
+            aria-label="Scroll projects left"
+          >
+            ←
+          </button>
+          <button
+            type="button"
+            onClick={() => scrollCards(1)}
+            className="h-8 w-8 rounded-full border border-stitch-pink text-stitch-red hover:bg-stitch-input transition-colors"
+            aria-label="Scroll projects right"
+          >
+            →
+          </button>
+        </div>
       </div>
 
-      {/* Horizontal Scroll Container */}
-      <div className="flex overflow-x-auto gap-4 px-4 pb-8 no-scrollbar snap-x snap-mandatory items-stretch">
-        {projects.map((proj, i) => (
-          <div key={i} className="snap-center shrink-0 h-full">
-            <ProjectCard {...proj} />
-          </div>
-        ))}
-
-        {/* Padding div to ensure the last card isn't flush against the edge */}
-        <div className="w-2 shrink-0" />
+      <div
+        ref={trackRef}
+        className="overflow-x-auto no-scrollbar px-4 pb-8 scroll-smooth snap-x snap-proximity [scrollbar-gutter:stable] touch-pan-x overscroll-x-contain"
+        style={{ WebkitOverflowScrolling: "touch" }}
+      >
+        <div className="flex gap-4 items-stretch w-max">
+          {projects.map((proj, i) => (
+            <div key={i} className="shrink-0 h-full snap-center">
+              <ProjectCard {...proj} />
+            </div>
+          ))}
+          <div className="w-2 shrink-0" />
+        </div>
       </div>
     </section>
   );

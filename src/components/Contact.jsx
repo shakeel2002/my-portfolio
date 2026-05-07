@@ -28,14 +28,21 @@ const Contact = () => {
   };
 
   return (
-    <div id="contact" className="pb-20">
-      <h2 className="text-stitch-black text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">
+    <motion.div
+      id="contact"
+      initial={{ opacity: 0, y: 24 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.25 }}
+      whileHover={{ y: -4 }}
+      className="pb-20 section-3d section-path path-contact"
+    >
+      <h2 className="heading-pop text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-3 pt-5">
         Contact Me
       </h2>
 
       {/* Contact Details Card - ONLY EMAIL */}
       <div className="px-4 mb-6">
-        <div className="inline-block text-sm font-medium text-stitch-black bg-stitch-card p-4 rounded-lg border border-stitch-pink shadow-sm">
+        <div className="card-reflect inline-block text-sm font-medium text-stitch-black p-4 rounded-lg shadow-sm">
           <span className="text-stitch-red font-bold break-all">
             📧 shakeelahamed2610@gmail.com
           </span>
@@ -129,7 +136,7 @@ const Contact = () => {
           </motion.button>
         </div>
       </form>
-    </div>
+    </motion.div>
   );
 };
 
