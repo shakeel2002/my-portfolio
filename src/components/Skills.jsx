@@ -261,7 +261,7 @@ const CategoryCard = ({ category }) => {
 const Skills = () => {
   return (
     <section id="skills" className="py-8 section-3d section-path path-skills">
-      <h2 className="text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-6 pt-5 text-[#ff6d8a]">
+      <h2 className="heading-pop text-[22px] font-bold leading-tight tracking-[-0.015em] px-4 pb-6 pt-5">
         Skills & Expertise
       </h2>
 
