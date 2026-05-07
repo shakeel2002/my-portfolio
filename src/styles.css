@@ -20,12 +20,12 @@
 
 .dark {
   /* Dark Mode Colors */
-  --stitch-bg: #0f0f0f; /* Deep Black Background */
-  --stitch-card-bg: #1e1e1e; /* Slightly lighter for cards */
+  --stitch-bg: #050505;
+  --stitch-card-bg: #0d0d0d;
   --stitch-text-main: #ffffff; /* Pure White Text */
   --stitch-text-sec: #a1a1aa; /* Light Grey for secondary text */
-  --stitch-border: #333333;
-  --stitch-input-bg: #2a2a2a;
+  --stitch-border: #232323;
+  --stitch-input-bg: #111111;
 }
 
 /* --- GLOBAL SETTINGS --- */
@@ -100,10 +100,10 @@ body {
 .dark .section-3d {
   background: linear-gradient(
       160deg,
-      color-mix(in srgb, var(--stitch-card-bg) 96%, #1e1e1e 4%) 0%,
-      color-mix(in srgb, var(--stitch-card-bg) 88%, #2b1a1f 12%) 100%
+      color-mix(in srgb, var(--stitch-card-bg) 98%, #000000 2%) 0%,
+      color-mix(in srgb, var(--stitch-card-bg) 94%, #000000 6%) 100%
     );
-  box-shadow: 0 16px 34px rgba(221, 19, 59, 0.22), 0 8px 20px rgba(0, 0, 0, 0.42);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.55), 0 6px 16px rgba(0, 0, 0, 0.5);
 }
 
 /* Brighter, premium heading look */
@@ -187,9 +187,9 @@ body {
 .dark .card-reflect {
   background: linear-gradient(
     145deg,
-    color-mix(in srgb, var(--stitch-card-bg) 96%, #1b1b1b 4%) 0%,
-    color-mix(in srgb, var(--stitch-card-bg) 85%, #28171d 15%) 100%
+    color-mix(in srgb, var(--stitch-card-bg) 98%, #000000 2%) 0%,
+    color-mix(in srgb, var(--stitch-card-bg) 95%, #000000 5%) 100%
   );
-  box-shadow: 0 12px 26px rgba(221, 19, 59, 0.2), 0 6px 14px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.5), 0 4px 10px rgba(0, 0, 0, 0.46);
 }
 

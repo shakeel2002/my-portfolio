@@ -16,10 +16,10 @@ const About = () => {
           About Me
         </h2>
         <p className="text-stitch-black text-base font-normal leading-normal max-w-[720px]">
-          Building modern digital solutions through AI, automation, and
-          full-stack development. Focused on creating scalable web platforms,
-          intelligent business systems, and production-ready applications that
-          deliver real-world impact with clean and efficient user experiences.
+          Full Stack Developer focused on production-ready web applications with
+          React/Next.js and Node.js, plus practical AI-powered feature
+          integration. I build clean, scalable systems with strong delivery
+          discipline, documentation, and business-focused execution.
         </p>
 
         <div className="card-reflect p-5 rounded-lg border-l-4 border-stitch-gold">

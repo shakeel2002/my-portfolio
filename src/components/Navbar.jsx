@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 
-const Navbar = ({ darkMode, toggleTheme }) => {
+const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const links = ["About", "Skills", "Experience", "Projects", "Contact"];
 
@@ -28,21 +28,10 @@ const Navbar = ({ darkMode, toggleTheme }) => {
             </a>
           ))}
 
-          {/* Dark Mode Toggle */}
-          <button
-            onClick={toggleTheme}
-            className="p-2 rounded-full bg-stitch-pink text-stitch-black hover:bg-stitch-red hover:text-white transition-all"
-            title="Toggle Theme"
-          >
-            {darkMode ? "☀️" : "🌙"}
-          </button>
         </div>
 
         {/* Mobile Menu Button */}
         <div className="md:hidden flex items-center gap-4">
-          <button onClick={toggleTheme} className="text-lg">
-            {darkMode ? "☀️" : "🌙"}
-          </button>
           <button
             className="text-stitch-black"
             onClick={() => setIsOpen(!isOpen)}

@@ -45,9 +45,8 @@ const Hero = () => {
             Shakeel Ahamed
           </h1>
           <h2 className="text-white text-sm sm:text-lg md:text-xl font-normal leading-normal">
-            Software Engineer |{" "}
-            <span className="text-stitch-gold font-bold">AI</span> & Full-Stack
-            Developer
+            Full Stack Developer{" "}
+            <span className="text-stitch-gold font-bold">| AI Integration Engineer</span>
           </h2>
 
           <div className="min-h-7 mt-2">

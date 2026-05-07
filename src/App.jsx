@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import About from "./components/About";
@@ -11,30 +11,14 @@ import SocialLinks from "./components/SocialLinks";
 import ShakeelBot from "./components/ShakeelBot";
 
 function App() {
-  const [darkMode, setDarkMode] = useState(false);
-
   useEffect(() => {
-    const savedMode = localStorage.getItem("theme");
-    if (savedMode === "dark") {
-      setDarkMode(true);
-      document.documentElement.classList.add("dark");
-    }
+    document.documentElement.classList.add("dark");
+    localStorage.setItem("theme", "dark");
   }, []);
-
-  const toggleTheme = () => {
-    if (darkMode) {
-      document.documentElement.classList.remove("dark");
-      localStorage.setItem("theme", "light");
-    } else {
-      document.documentElement.classList.add("dark");
-      localStorage.setItem("theme", "dark");
-    }
-    setDarkMode(!darkMode);
-  };
 
   return (
     <div className="relative flex min-h-screen w-full flex-col overflow-x-hidden font-sans group/design-root bg-stitch-bg transition-colors duration-300">
-      <Navbar darkMode={darkMode} toggleTheme={toggleTheme} />
+      <Navbar />
       <ShakeelBot />
 
       <div className="layout-container relative z-10 flex h-full grow flex-col">

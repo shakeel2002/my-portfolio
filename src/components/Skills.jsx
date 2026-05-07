@@ -7,79 +7,15 @@ const DEFAULT_SKILL_ICON =
 // --- DATA ---
 const skillCategories = [
   {
-    title: "Programming Languages",
-    skills: [
-      {
-        name: "Python",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg",
-        special: true,
-      },
-      {
-        name: "JavaScript",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
-      },
-      {
-        name: "SQL",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
-      },
-      {
-        name: "HTML5",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",
-      },
-      {
-        name: "CSS3",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg",
-      },
-    ],
-  },
-  // --- NEW CATEGORY ADDED HERE ---
-  {
-    title: "AI Tools & Integration",
-    skills: [
-      {
-        name: "ChatGPT",
-        icon: "https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg",
-      },
-      {
-        name: "DeepSeek",
-        icon: "https://cdn-icons-png.flaticon.com/512/25/25383.png",
-      },
-      {
-        name: "Google Studio (Gemini)",
-        icon: "https://upload.wikimedia.org/wikipedia/commons/8/8a/Google_Gemini_logo.svg",
-      },
-      {
-        name: "Copilot",
-        icon: "https://cdn.simpleicons.org/githubcopilot",
-      },
-      {
-        name: "Cursor",
-        icon: "https://cdn.simpleicons.org/cursor",
-      },
-      {
-        name: "Claude",
-        icon: "https://cdn.simpleicons.org/anthropic",
-      },
-      {
-        name: "Blackbox",
-        icon: "https://cdn-icons-png.flaticon.com/512/4712/4712100.png",
-      },
-      {
-        name: "Stitch",
-        icon: "https://cdn-icons-png.flaticon.com/512/857/857681.png",
-      },
-    ],
-  },
-
-  {
-    title: "Frontend Development",
+    title: "Core Stack",
     skills: [
       {
         name: "Next.js",
         icon: "https://cdn.simpleicons.org/nextdotjs",
+        special: true,
       },
       {
-        name: "React.js",
+        name: "React",
         icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
       },
       {
@@ -87,16 +23,12 @@ const skillCategories = [
         icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
       },
       {
-        name: "Tailwind",
+        name: "JavaScript",
+        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg",
+      },
+      {
+        name: "Tailwind CSS",
         icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg",
-      },
-      {
-        name: "UI/UX Design",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/figma/figma-original.svg",
-      },
-      {
-        name: "Responsive Web Design",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg",
       },
     ],
   },
@@ -104,58 +36,37 @@ const skillCategories = [
     title: "Backend & API",
     skills: [
       {
-        name: "Flask",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg",
-      },
-      {
         name: "Node.js",
         icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
       },
       {
-        name: "REST API Development",
+        name: "Express.js",
+        icon: "https://cdn.simpleicons.org/express",
+      },
+      {
+        name: "REST APIs",
         icon: "https://cdn.simpleicons.org/json",
-      },
-      {
-        name: "FastAPI",
-        icon: "https://cdn.simpleicons.org/fastapi",
-      },
-      {
-        name: "PHP",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg",
       },
       {
         name: "Supabase",
         icon: "https://cdn.simpleicons.org/supabase",
       },
-    ],
-  },
-  {
-    title: "Mobile Development",
-    skills: [
       {
-        name: "Android (Java)",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/android/android-original.svg",
-      },
-      {
-        name: "XML",
-        icon: "https://cdn.simpleicons.org/xml",
-      },
-      {
-        name: "Firebase",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg",
-      },
-      {
-        name: "Flutter",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flutter/flutter-original.svg",
+        name: "Flask",
+        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/flask/flask-original.svg",
       },
     ],
   },
   {
-    title: "AI & Machine Learning",
+    title: "AI Integration",
     skills: [
       {
-        name: "TensorFlow",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tensorflow/tensorflow-original.svg",
+        name: "OpenAI API",
+        icon: "https://cdn.simpleicons.org/openai",
+      },
+      {
+        name: "Gemini API",
+        icon: "https://upload.wikimedia.org/wikipedia/commons/8/8a/Google_Gemini_logo.svg",
       },
       {
         name: "OpenCV",
@@ -170,204 +81,70 @@ const skillCategories = [
         icon: "https://cdn.simpleicons.org/openai",
       },
       {
-        name: "RAG",
-        icon: "https://img.icons8.com/color/96/knowledge-sharing.png",
+        name: "Workflow Automation",
+        icon: "https://img.icons8.com/color/96/workflow.png",
       },
     ],
   },
   {
-    title: "Automation & Integrations",
+    title: "Databases & Delivery",
     skills: [
-      {
-        name: "WhatsApp Automation",
-        icon: "https://cdn.simpleicons.org/whatsapp",
-      },
-      {
-        name: "Email Automation",
-        icon: "https://img.icons8.com/color/96/new-post.png",
-      },
-    ],
-  },
-  {
-    title: "Database Management",
-    skills: [
-      {
-        name: "MySQL",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
-      },
       {
         name: "PostgreSQL",
         icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
       },
       {
-        name: "MongoDB",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
+        name: "MySQL",
+        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg",
       },
       {
-        name: "Oracle SQL",
+        name: "Oracle DB",
         icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/oracle/oracle-original.svg",
       },
-    ],
-  },
-  {
-    title: "IT Support & Systems",
-    skills: [
-      {
-        name: "Technical Support",
-        icon: "https://img.icons8.com/color/96/technical-support.png",
-      },
-      {
-        name: "Software Installation",
-        icon: "https://img.icons8.com/color/96/installing-updates.png",
-      },
-      {
-        name: "System Maintenance",
-        icon: "https://cdn.simpleicons.org/keepassxc",
-      },
-      {
-        name: "User Support",
-        icon: "https://img.icons8.com/color/96/customer-support.png",
-      },
-      {
-        name: "Windows Environment",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/windows8/windows8-original.svg",
-      },
-      {
-        name: "Basic Networking",
-        icon: "https://cdn.simpleicons.org/cisco",
-      },
-      {
-        name: "Hardware Setup",
-        icon: "https://cdn.simpleicons.org/amd",
-      },
-      {
-        name: "IT Operations",
-        icon: "https://cdn.simpleicons.org/opsgenie",
-      },
-    ],
-  },
-  {
-    title: "Networking & Cloud",
-    skills: [
-      {
-        name: "Network Basics",
-        icon: "https://cdn.simpleicons.org/cisco",
-      },
-      {
-        name: "IP Configuration",
-        icon: "https://cdn.simpleicons.org/internetarchive",
-      },
-      {
-        name: "Cloud App Basics",
-        icon: "https://cdn.simpleicons.org/googlecloud",
-      },
-      {
-        name: "Firebase Cloud Services",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/firebase/firebase-plain.svg",
-      },
-      {
-        name: "Hosting & Deployment",
-        icon: "https://cdn.simpleicons.org/vercel",
-      },
-    ],
-  },
-  {
-    title: "Document Control & Administration",
-    skills: [
-      {
-        name: "Document Management",
-        icon: "https://cdn.simpleicons.org/googledocs",
-      },
-      {
-        name: "Version Control",
-        icon: "https://cdn.simpleicons.org/git",
-      },
-      {
-        name: "Excel Reporting",
-        icon: "https://img.icons8.com/color/96/microsoft-excel-2019--v1.png",
-      },
-      {
-        name: "File Organization",
-        icon: "https://cdn.simpleicons.org/googledrive",
-      },
-      {
-        name: "Technical Documentation",
-        icon: "https://cdn.simpleicons.org/notion",
-      },
-      {
-        name: "Workflow Documentation",
-        icon: "https://cdn.simpleicons.org/confluence",
-      },
-      {
-        name: "Data Entry & Reporting",
-        icon: "https://img.icons8.com/color/96/combo-chart--v1.png",
-      },
-    ],
-  },
-  {
-    title: "Graphic Design & Creative",
-    skills: [
-      {
-        name: "Graphic Design",
-        icon: "https://img.icons8.com/color/96/design.png",
-      },
-      {
-        name: "Banner & Poster Design",
-        icon: "https://img.icons8.com/color/96/banner.png",
-      },
-      {
-        name: "Social Media Creatives",
-        icon: "https://cdn.simpleicons.org/instagram",
-      },
-      {
-        name: "UI Assets & Branding",
-        icon: "https://cdn.simpleicons.org/figma",
-      },
-      {
-        name: "Presentation Design",
-        icon: "https://img.icons8.com/color/96/microsoft-powerpoint-2019--v1.png",
-      },
-    ],
-  },
-  {
-    title: "Tools & Hosting",
-    skills: [
       {
         name: "Git & GitHub",
         icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg",
-      },
-      {
-        name: "VS Code",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg",
       },
       {
         name: "Postman",
         icon: "https://www.svgrepo.com/show/354202/postman-icon.svg",
       },
       {
-        name: "Netlify",
-        icon: "https://cdn.simpleicons.org/netlify",
+        name: "Vercel / Netlify",
+        icon: "https://cdn.simpleicons.org/vercel",
       },
       {
-        name: "Vercel",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vercel/vercel-original.svg",
+        name: "AWS",
+        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-original-wordmark.svg",
       },
       {
-        name: "Android Studio",
-        icon: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/androidstudio/androidstudio-original.svg",
+        name: "Microsoft 365",
+        icon: "https://img.icons8.com/color/96/office-365.png",
       },
     ],
   },
   {
-    title: "Languages",
+    title: "Professional Strengths",
     skills: [
       {
-        name: "Tamil",
-        icon: "https://upload.wikimedia.org/wikipedia/commons/9/9e/ISO_639_Icon_ta.svg",
+        name: "IT Troubleshooting",
+        icon: "https://img.icons8.com/color/96/technical-support.png",
       },
       {
-        name: "English",
-        icon: "https://upload.wikimedia.org/wikipedia/commons/e/ef/ISO_639_Icon_en.svg",
+        name: "Excel Reporting",
+        icon: "https://img.icons8.com/color/96/microsoft-excel-2019--v1.png",
+      },
+      {
+        name: "Documentation",
+        icon: "https://cdn.simpleicons.org/googledocs",
+      },
+      {
+        name: "UI/UX Collaboration",
+        icon: "https://cdn.simpleicons.org/figma",
+      },
+      {
+        name: "Client Communication",
+        icon: "https://img.icons8.com/color/96/communication.png",
       },
     ],
   },
@@ -489,13 +266,11 @@ const Skills = () => {
           <div className="flex flex-wrap gap-3">
             {[
               "Problem-Solving",
-              "Logical Thinking",
+              "Ownership",
+              "Clear Communication",
               "Team Collaboration",
-              "Communication",
               "Time Management",
               "Adaptability",
-              "Fast Learning",
-              "Client Handling",
             ].map((soft, i) => (
               <span
                 key={i}
