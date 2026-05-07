@@ -16,17 +16,18 @@ const About = () => {
           About Me
         </h2>
         <p className="text-stitch-black text-base font-normal leading-normal max-w-[720px]">
-          I’m an <span className="font-bold text-stitch-red">IT graduate</span>{" "}
-          specializing in AI-powered applications, Android development, and
-          full-stack engineering. I enjoy turning ideas into working
-          products—whether it's a smart Android app, a responsive web platform,
-          or an AI agent that interacts with users.
+          Building modern digital solutions through AI, automation, and
+          full-stack development. Focused on creating scalable web platforms,
+          intelligent business systems, and production-ready applications that
+          deliver real-world impact with clean and efficient user experiences.
         </p>
 
         <div className="card-reflect p-5 rounded-lg border-l-4 border-stitch-gold">
           <p className="text-stitch-black font-medium">Currently exploring:</p>
           <p className="text-stitch-textux mt-1">
-            AI agents, LLM integrations, and scalable backend systems.
+            Advanced AI agents, LLM integrations, scalable backend
+            architectures, and next-generation SaaS products to build smarter
+            and more automated systems.
           </p>
         </div>
       </div>

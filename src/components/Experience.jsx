@@ -47,40 +47,17 @@ const Experience = () => {
               real-time analytics features.
             </li>
             <li>
-              Worked on AI prompt engineering and workflow optimization using
-              tools like{" "}
-              <span className="font-bold text-stitch-gold">
-                DeepSeek & Cursor
-              </span>
-              .
+              Developed and integrated full-stack application modules focused on
+              scalable AI-driven and web-based business solutions.
             </li>
             <li>
-              Provided IT support for internal systems, software
+              Provided IT support for internal systems including software
               troubleshooting, user assistance, and technical issue resolution.
             </li>
             <li>
-              Assisted in system setup, application maintenance, and day-to-day
-              technical operations.
-            </li>
-            <li>
-              Managed project-related documentation, reports, version tracking,
-              and technical records.
-            </li>
-            <li>
-              Handled document organization and workflow management for
-              development and client deliverables.
-            </li>
-            <li>
-              Created graphic design materials including UI assets, banners,
-              presentation visuals, and branding-related content.
-            </li>
-            <li>
-              Collaborated with development and design teams to improve user
-              experience and application interfaces.
-            </li>
-            <li>
-              Participated in testing, debugging, deployment support, and
-              client requirement handling.
+              Handled documentation, Excel-based reporting, version tracking,
+              and structured workflow management for development and client
+              deliverables.
             </li>
           </ul>
         </motion.div>
