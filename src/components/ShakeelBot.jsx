@@ -330,32 +330,32 @@ const ShakeelBot = () => {
       </button>
 
       {isOpen && (
-        <div className="fixed bottom-24 right-4 z-50 w-[94vw] max-w-[390px] rounded-2xl border border-white/40 bg-white/75 shadow-2xl backdrop-blur-xl overflow-hidden dark:border-slate-700/60 dark:bg-slate-900/75">
-          <div className="px-4 py-3 border-b border-white/40 bg-linear-to-r from-white/70 to-rose-50/70 flex items-start justify-between gap-3 dark:border-slate-700/60 dark:from-slate-900/70 dark:to-slate-800/70">
+        <div className="fixed bottom-24 right-4 z-50 w-[94vw] max-w-[390px] rounded-2xl border border-white/40 bg-white/75 shadow-2xl backdrop-blur-xl overflow-hidden dark:border-[#5a4620] dark:bg-[#0f0f0f]/95">
+          <div className="px-4 py-3 border-b border-white/40 bg-linear-to-r from-white/70 to-rose-50/70 flex items-start justify-between gap-3 dark:border-[#5a4620] dark:from-[#131313] dark:to-[#1a1a1a]">
             <div>
-              <h3 className="font-bold text-slate-900 dark:text-white">
+              <h3 className="font-bold text-slate-900 dark:text-[#f4d58a]">
                 Shakeel Bot
               </h3>
-              <p className="text-xs text-slate-500 dark:text-slate-300">
+              <p className="text-xs text-slate-500 dark:text-[#c8b486]">
                 Portfolio assistant for recruiters and clients
               </p>
             </div>
             <button
               type="button"
               onClick={() => setIsOpen(false)}
-              className="text-slate-500 hover:text-slate-800 text-sm dark:text-slate-300 dark:hover:text-white"
+              className="text-slate-500 hover:text-slate-800 text-sm dark:text-[#d7c394] dark:hover:text-[#f7df9b]"
             >
               Close
             </button>
           </div>
 
-          <div className="px-3 pt-3 pb-2 max-h-[330px] overflow-y-auto space-y-2 bg-slate-50/70 dark:bg-slate-950/60">
+          <div className="px-3 pt-3 pb-2 max-h-[330px] overflow-y-auto space-y-2 bg-slate-50/70 dark:bg-[#0a0a0a]/90">
             {messages.map((message, index) => (
               <div
                 key={`${message.role}-${index}`}
                 className={`rounded-2xl px-3 py-2.5 text-sm whitespace-pre-line leading-relaxed ${
                   message.role === "assistant"
-                    ? "bg-white/90 text-slate-800 border border-slate-200 mr-8 dark:bg-slate-800/90 dark:text-slate-100 dark:border-slate-700"
+                    ? "bg-white/90 text-slate-800 border border-slate-200 mr-8 dark:bg-[#171717] dark:text-[#f3e8c8] dark:border-[#5a4620]"
                     : "bg-[#d6133b] text-white ml-8"
                 }`}
                 style={{ overflowWrap: "anywhere", wordBreak: "break-word" }}
@@ -368,7 +368,7 @@ const ShakeelBot = () => {
                         key={action.label}
                         type="button"
                         onClick={() => handleMessageAction(action)}
-                        className="text-[11px] px-2.5 py-1 rounded-full border border-rose-300 text-rose-700 bg-rose-50 hover:bg-rose-100 transition-colors dark:border-rose-400/40 dark:text-rose-200 dark:bg-rose-900/30 dark:hover:bg-rose-900/40"
+                        className="text-[11px] px-2.5 py-1 rounded-full border border-rose-300 text-rose-700 bg-rose-50 hover:bg-rose-100 transition-colors dark:border-[#7a6330] dark:text-[#f4d58a] dark:bg-[#2a2111] dark:hover:bg-[#3a2d16]"
                       >
                         {action.label}
                       </button>
@@ -378,15 +378,15 @@ const ShakeelBot = () => {
               </div>
             ))}
             {isTyping && (
-              <div className="rounded-2xl px-3 py-2 text-sm bg-white/90 text-slate-700 border border-slate-200 mr-8 dark:bg-slate-800/90 dark:text-slate-100 dark:border-slate-700">
+              <div className="rounded-2xl px-3 py-2 text-sm bg-white/90 text-slate-700 border border-slate-200 mr-8 dark:bg-[#171717] dark:text-[#f3e8c8] dark:border-[#5a4620]">
                 <span className="inline-flex gap-1 items-center">
-                  <span className="w-1.5 h-1.5 rounded-full bg-slate-400 animate-bounce" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-slate-400 dark:bg-[#c8aa66] animate-bounce" />
                   <span
-                    className="w-1.5 h-1.5 rounded-full bg-slate-400 animate-bounce"
+                    className="w-1.5 h-1.5 rounded-full bg-slate-400 dark:bg-[#c8aa66] animate-bounce"
                     style={{ animationDelay: "120ms" }}
                   />
                   <span
-                    className="w-1.5 h-1.5 rounded-full bg-slate-400 animate-bounce"
+                    className="w-1.5 h-1.5 rounded-full bg-slate-400 dark:bg-[#c8aa66] animate-bounce"
                     style={{ animationDelay: "240ms" }}
                   />
                 </span>
@@ -397,14 +397,14 @@ const ShakeelBot = () => {
 
           <form
             onSubmit={handleSubmit}
-            className="p-3 border-t border-rose-100 bg-white dark:border-slate-700 dark:bg-slate-900"
+            className="p-3 border-t border-rose-100 bg-white dark:border-[#5a4620] dark:bg-[#101010]"
           >
             <div className="flex gap-2">
               <input
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
                 placeholder="Type your message..."
-                className="flex-1 rounded-xl border border-slate-300 px-3 py-2.5 text-sm text-slate-800 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-rose-300 dark:border-slate-600 dark:bg-slate-800 dark:text-white dark:placeholder:text-slate-400"
+                className="flex-1 rounded-xl border border-slate-300 px-3 py-2.5 text-sm text-slate-800 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-rose-300 dark:border-[#6f5724] dark:bg-[#1a1a1a] dark:text-[#f7edcf] dark:placeholder:text-[#ad9d78] dark:focus:ring-[#cfa75e]"
               />
               <button
                 type="submit"
